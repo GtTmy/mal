@@ -3,7 +3,7 @@ use std::io::Write;
 
 
 fn read() -> Option<String> {
-    print!("user>");
+    print!("user> ");
     io::stdout().flush().unwrap(); 
     let mut input = String::new();
     match io::stdin().read_line(&mut input) {
@@ -14,7 +14,7 @@ fn read() -> Option<String> {
         },
         Err(_) => panic!("Error!")
     }
-    input.retain(|c| c!='\n');
+    input.pop();
     Some(input)
 }
 
